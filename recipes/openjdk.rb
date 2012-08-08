@@ -31,10 +31,10 @@ pkgs = value_for_platform(
   },
   "smartos" => {
     "default" => ["sun-jdk#{version}", "sun-jre#{version}"]
-  }
+  },
   "default" => ["openjdk-#{version}-jdk"]
   )
-
+  
 # done by special request for rberger
 ruby_block  "set-env-java-home" do
   block do
@@ -76,6 +76,16 @@ if platform?("ubuntu","debian","redhat","centos","fedora","scientific","amazon")
       end
     end
     action :nothing
+  end
+end
+
+# accepts license agreement for java on smartos install
+if platform?("smartos")
+  file "/opt/local/.dlj_license_accepted" do
+    owner "root"
+    group "root"
+    mode "0755"
+    action :create
   end
 end
 
