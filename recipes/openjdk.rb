@@ -29,6 +29,9 @@ pkgs = value_for_platform(
   ["arch","freebsd"] => {
     "default" => ["openjdk#{version}"]
   },
+  "smartos" => {
+    "default" => ["sun-jdk#{version}", "sun-jre#{version}"]
+  }
   "default" => ["openjdk-#{version}-jdk"]
   )
 

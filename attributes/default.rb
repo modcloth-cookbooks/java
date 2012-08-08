@@ -32,6 +32,9 @@ when "freebsd"
   default['java']['java_home'] = "/usr/local/openjdk#{java['jdk_version']}"
 when "arch"
   default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
+when "smartos"
+  # /opt/local/java/sun6
+  default['java']['java_home'] = "/opt/local/java/sun#{java['jdk_version']}"
 else
   default['java']['java_home'] = "/usr/lib/jvm/default-java"
 end
