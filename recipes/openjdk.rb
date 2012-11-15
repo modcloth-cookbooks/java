@@ -48,7 +48,7 @@ if platform?("ubuntu","debian","redhat","centos","fedora","scientific","amazon")
       if platform?("ubuntu", "debian") and version == 6
         run_context = Chef::RunContext.new(node, {})
         r = Chef::Resource::Execute.new("update-java-alternatives", run_context)
-        r.command "update-java-alternatives -s java-6-openjdk"
+        r.command "update-java-alternatives -s java-6-openjdk; update-java-alternatives -s java-1.6.0-openjdk"
         r.returns [0,2]
         r.run_action(:create)
       else
