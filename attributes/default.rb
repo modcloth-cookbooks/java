@@ -34,7 +34,7 @@ when "freebsd"
   default['java']['java_home'] = "/usr/local/openjdk#{node['java']['jdk_version']}"
   default['java']['openjdk_packages'] = ["openjdk#{node['java']['jdk_version']}"]
 when "arch"
-  default['java']['java_home'] = "/usr/lib/jvm/java-#{java['jdk_version']}-openjdk"
+  default['java']['java_home'] = "/usr/lib/jvm/java-#{node['java']['jdk_version']}-openjdk"
 when "smartos"
   # /opt/local/java/sun6
   default['java']['java_home'] = "/opt/local/java/sun#{node['java']['jdk_version']}"
